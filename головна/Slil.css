@@ -114,7 +114,7 @@ section {
 
 
 #services {
-    padding: 20px 0;
+    padding: 40px 0;
     text-align: center;
 }
 
@@ -165,8 +165,8 @@ section {
 
 #contact1 {
     text-align: center;
-    padding-top: 100px; /* Примерный отступ сверху */
-    padding-bottom: 100px; /* Примерный отступ снизу */
+    padding-top: 40px; /* Примерный отступ сверху */
+    padding-bottom: 40px; /* Примерный отступ снизу */
 }
 
 #contact1 .container {
@@ -286,7 +286,7 @@ footer {
 }
 
 #warum h2 {
-    margin-bottom: 20px; /* Додатковий відступ вниз */
+    margin-bottom: 30px; /* Додатковий відступ вниз */
 }
 
 #warum .reasons {
@@ -323,7 +323,7 @@ footer {
     text-align: center;
 }
 #faq {
-    padding: 20px 0;
+    padding: 40px 0;
     text-align: center;
 }
 

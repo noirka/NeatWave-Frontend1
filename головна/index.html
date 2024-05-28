@@ -90,6 +90,9 @@ function goToHomePage() {
 function goToauthorizationPage() {
             window.location.href = "/вхід/authorization.html";
         }
+        function goToprisePage() {
+            window.location.href = "/ціна/prise.html";
+        }
     </script>
   
 </head>
@@ -101,7 +104,7 @@ function goToauthorizationPage() {
                 <nav>
                     <ul>
                         <li><a href="#Make_an_order">Зробити замовлення</a></li>
-                        <li><a href="#services">Ціни</a></li>
+                        <li><a onclick="goToprisePage()">Ціни</a></li>
                         <li><a href="#about">Про нас</a></li>
                         <li><a href="#contact1">Зв’язатися</a></li>
                         <li><a onclick="goToauthorizationPage()" target="_blank">Вхід</a></li>
