@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeatWave</title>
+    <link rel="stylesheet" href="authorization.css">
+
+    <link rel="stylesheet" href="/головна/Slil.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="540098223058-lim2qsf54ffh8fslah66ig1dkcqeah8b.apps.googleusercontent.com">
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId());
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail());
+            // Дополнительный код для обработки данных пользователя
+        }
+
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+                // Дополнительный код для выхода пользователя
+            });
+        }
+    </script>
+  
+    <script>
+      
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    var answer = this.querySelector('.faq-answer');
+                    if (answer.style.display === 'none' || answer.style.display === '') {
+                        answer.style.display = 'block';
+                        this.querySelector('i').classList.remove('fa-chevron-down');
+                        this.querySelector('i').classList.add('fa-chevron-up');
+                    } else {
+                        answer.style.display = 'none';
+                        this.querySelector('i').classList.remove('fa-chevron-up');
+                        this.querySelector('i').classList.add('fa-chevron-down');
+                    }
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const testimonialsList = document.querySelector('.testimonials-list');
+            const testimonialItems = document.querySelectorAll('.testimonial-item');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            let currentIndex = 0;
+
+            function showTestimonial(index) {
+                const offset = -index * 100;
+                testimonialsList.style.transform = `translateX(${offset}%)`;
+            }
+
+            prevBtn.addEventListener('click', function() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = testimonialItems.length - 1;
+                }
+                showTestimonial(currentIndex);
+            });
+
+            nextBtn.addEventListener('click', function() {
+                if (currentIndex < testimonialItems.length - 1) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                showTestimonial(currentIndex);
+            });
+
+            showTestimonial(currentIndex);
+        });
+
+        (function() {
+            var a = document.getElementById('myHeader'), b = null;
+            window.addEventListener('scroll', Ascroll, false);
+            document.body.addEventListener('scroll', Ascroll, false);
+            function Ascroll() {
+                if (b == null) {
+                    var Sa = getComputedStyle(a, ''), s = '';
+                    for (var i = 0; i < Sa.length; i++) {
+                        if (Sa[i].indexOf('overflow') == 0 || Sa[i].indexOf('padding') == 0 || Sa[i].indexOf('border') == 0 || Sa[i].indexOf('outline') == 0 || Sa[i].indexOf('box-shadow') == 0 || Sa[i].indexOf('background') == 0) {
+                            s += Sa[i] + ': ' + Sa.getPropertyValue(Sa[i]) + '; ';
+                        }
+                    }
+                    b = document.createElement('div');
+                    b.style.cssText = s + ' box-sizing: border-box; width: ' + a.offsetWidth + 'px;';
+                    a.insertBefore(b, a.firstChild);
+                    var l = a.childNodes.length;
+                    for (var i = 1; i < l; i++) {
+                        b.appendChild(a.childNodes[1]);
+                    }
+                    a.style.height = b.getBoundingClientRect().height + 'px';
+                    a.style.padding = '0';
+                    a.style.border = '0';
+                }
+                if (a.getBoundingClientRect().top <= 0) {
+                    b.className = 'sticky';
+                } else {
+                    b.className = '';
+                }
+                window.addEventListener('resize', function() {
+                    a.children[0].style.width = getComputedStyle(a, '').width;
+                }, false);
+            }
+        })();
+        function goToHomePage() {
+            window.location.href = "/головна/index.html";
+        }
+        function goToregistrationPage() {
+            window.location.href = "/реєстрація/registration.html";
+        }
+    </script>
+</head>
+<body>
+    
+    <header id="myHeader">
+        <div class="container">
+            <div class="rown">
+                <h1 onclick="goToHomePage()">NeatWave</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#Make_an_order">Зробити замовлення</a></li>
+                        <li><a href="#services">Ціни</a></li>
+                        <li><a href="#about">Про нас</a></li>
+                        <li><a href="#contact1">Зв’язатися</a></li>
+                        <li><a href="authorization.html" target="_blank">Вхід</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="conе">
+    <div class="auth-container1">
+        <h2>Авторизація</h2>
+        <form>
+            <input type="text" placeholder="Логін" required>
+            <input type="password" placeholder="Пароль" required>
+            <button type="submit">Увійти</button>
+            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+        </form>
+        <div class="register-link1">
+            <p>Немає облікового запису? <a onclick="goToregistrationPage()">Зареєструватися</a></p>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            var a = document.getElementById('myHeader'), b = null;
+            window.addEventListener('scroll', Ascroll, false);
+            document.body.addEventListener('scroll', Ascroll, false);
+            function Ascroll() {
+                if (b == null) {
+                    var Sa = getComputedStyle(a, ''), s = '';
+                    for (var i = 0; i < Sa.length; i++) {
+                        if (Sa[i].indexOf('overflow') == 0 || Sa[i].indexOf('padding') == 0 || Sa[i].indexOf('border') == 0 || Sa[i].indexOf('outline') == 0 || Sa[i].indexOf('box-shadow') == 0 || Sa[i].indexOf('background') == 0) {
+                            s += Sa[i] + ': ' + Sa.getPropertyValue(Sa[i]) + '; ';
+                        }
+                    }
+                    b = document.createElement('div');
+                    b.style.cssText = s + ' box-sizing: border-box; width: ' + a.offsetWidth + 'px;';
+                    a.insertBefore(b, a.firstChild);
+                    var l = a.childNodes.length;
+                    for (var i = 1; i < l; i++) {
+                        b.appendChild(a.childNodes[1]);
+                    }
+                    a.style.height = b.getBoundingClientRect().height + 'px';
+                    a.style.padding = '0';
+                    a.style.border = '0';
+                }
+                if (a.getBoundingClientRect().top <= 0) {
+                    b.className = 'sticky';
+                } else {
+                    b.className = '';
+                }
+                window.addEventListener('resize', function() {
+                    a.children[0].style.width = getComputedStyle(a, '').width;
+                }, false);
+            }
+        })();
+    </script>
+    </div>
+</body>
+</html>
