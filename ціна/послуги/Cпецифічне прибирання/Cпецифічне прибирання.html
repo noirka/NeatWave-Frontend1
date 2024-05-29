@@ -4,32 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeatWave</title>
-    <link rel="stylesheet" href="authorization.css">
-
     <link rel="stylesheet" href="/головна/Slil.css">
+
+    <link rel="stylesheet" href="Cпецифічне прибирання.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id" content="540098223058-lim2qsf54ffh8fslah66ig1dkcqeah8b.apps.googleusercontent.com">
-    <script>
-        function onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            console.log('ID: ' + profile.getId());
-            console.log('Name: ' + profile.getName());
-            console.log('Image URL: ' + profile.getImageUrl());
-            console.log('Email: ' + profile.getEmail());
-            // Дополнительный код для обработки данных пользователя
-        }
 
-        function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-                console.log('User signed out.');
-                // Дополнительный код для выхода пользователя
-            });
-        }
-    </script>
   
+   
     <script>
       
 
@@ -117,36 +100,12 @@
                 }, false);
             }
         })();
+
         function goToHomePage() {
             window.location.href = "/головна/index.html";
         }
-        function goToregistrationPage() {
-            window.location.href = "/реєстрація/registration.html";
-        }
-        function goToauthorizationPage() {
-            window.location.href = "/вхід/authorization.html";
-        }
-        function goToHome_contact1Page() {
-            window.location.href = "/головна/index.html#contact1";
-        }
-        function goToHome_aboutPage() {
-            window.location.href = "/головна/index.html#about";
-        }
-        function goToservicesPage() {
-            window.location.href = "/ціна/prise.html";
-        }
-        function goToMake_an_orderPage() {
-            window.location.href = "/Зробити замовлення/Зробити замовлення.html";
-        }
-        function goTofaqPage() {
-            window.location.href = "/головна/index.html#faq";
-        }
-        function goTotestimonialsPage() {
-            window.location.href = "/головна/index.html#testimonials";
-        }
-      
     </script>
-</head>
+
 <body>
     
     <header id="myHeader">
@@ -155,76 +114,70 @@
                 <h1 onclick="goToHomePage()">NeatWave</h1>
                 <nav>
                     <ul>
-                        <li><a onclick="goToMake_an_orderPage()">Зробити замовлення</a></li>
-                        <li><a onclick="goToservicesPage()">Ціни</a></li>
-                        <li><a onclick="goToHome_aboutPage()">Про нас</a></li>
-                        <li><a onclick="goToHome_contact1Page()">Зв’язатися</a></li>
-                        <li><a onclick="goToauthorizationPage()" target="_blank">Вхід</a></li>
+                        <li><a href="#Make_an_order">Зробити замовлення</a></li>
+                        <li><a href="#services">Ціни</a></li>
+                        <li><a href="#about">Про нас</a></li>
+                        <li><a href="#contact1">Зв’язатися</a></li>
+                        <li><a href="/вхід/authorization.html" target="_blank">Вхід</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
-    <div class="conе">
-    <div class="auth-container1">
-        <h2>Авторизація</h2>
-        <form>
-            <input type="text" placeholder="Логін" required>
-            <input type="password" placeholder="Пароль" required>
-            <button type="submit">Увійти</button>
-            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-        </form>
-        <div class="register-link1">
-            <p>Немає облікового запису? <a onclick="goToregistrationPage()">Зареєструватися</a></p>
-        </div>
+   
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вибір Послуг</title>
+    <link rel="stylesheet" href="services.css">
+  
+
+<body1>
+    <div class="calc-container">
+        <h2>Розрахунок ціни единоразового прибирання</h2>
+        <label for="area">Введіть площу квартири (м²):</label>
+        <input type="number" id="area" min="20" placeholder="Введіть площу квартири" oninput="calculatePrice()">
+        <div class="result" id="oneTimeResult"></div>
+
+        <h2>Розрахунок ціни прибирання за контрактом на 2 роки</h2>
+        <div class="result" id="contractResult"></div>
     </div>
 
     <script>
-        (function() {
-            var a = document.getElementById('myHeader'), b = null;
-            window.addEventListener('scroll', Ascroll, false);
-            document.body.addEventListener('scroll', Ascroll, false);
-            function Ascroll() {
-                if (b == null) {
-                    var Sa = getComputedStyle(a, ''), s = '';
-                    for (var i = 0; i < Sa.length; i++) {
-                        if (Sa[i].indexOf('overflow') == 0 || Sa[i].indexOf('padding') == 0 || Sa[i].indexOf('border') == 0 || Sa[i].indexOf('outline') == 0 || Sa[i].indexOf('box-shadow') == 0 || Sa[i].indexOf('background') == 0) {
-                            s += Sa[i] + ': ' + Sa.getPropertyValue(Sa[i]) + '; ';
-                        }
-                    }
-                    b = document.createElement('div');
-                    b.style.cssText = s + ' box-sizing: border-box; width: ' + a.offsetWidth + 'px;';
-                    a.insertBefore(b, a.firstChild);
-                    var l = a.childNodes.length;
-                    for (var i = 1; i < l; i++) {
-                        b.appendChild(a.childNodes[1]);
-                    }
-                    a.style.height = b.getBoundingClientRect().height + 'px';
-                    a.style.padding = '0';
-                    a.style.border = '0';
-                }
-                if (a.getBoundingClientRect().top <= 0) {
-                    b.className = 'sticky';
-                } else {
-                    b.className = '';
-                }
-                window.addEventListener('resize', function() {
-                    a.children[0].style.width = getComputedStyle(a, '').width;
-                }, false);
+        function calculatePrice() {
+            let area = document.getElementById('area').value;
+            let priceOneTime = 0;
+            let priceFirstYear = 0;
+            let priceSecondYear = 0;
+
+            if (area >= 20) {
+                priceOneTime = 1000 + (area - 20) * 45;
+                priceFirstYear = 1000 + (area - 20) * 35;
+                priceSecondYear = 1000 + (area - 20) * 50;
+            } else {
+                priceOneTime = 1000; // Мінімальна ціна при площі менше 20 м²
+                priceFirstYear = 1000; // Мінімальна ціна при площі менше 20 м²
+                priceSecondYear = 1000; // Мінімальна ціна при площі менше 20 м²
             }
-        })();
+
+            document.getElementById('oneTimeResult').innerText = `Ціна разового прибирання: ${priceOneTime} грн`;
+            document.getElementById('contractResult').innerText = `Ціна за контрактом:
+                Перший рік: ${priceFirstYear} грн
+                Другий рік: ${priceSecondYear} грн`;
+        }
     </script>
-    </div>
+
+
     <footer>
         <div class="footer-container">
             <div class="footer-section">
                 <h3>Навігація</h3>
                 <ul>
-                    <li><a onclick="goToHomePage()">Головна</a></li>
-                    <li><a onclick="goToHome_aboutPage()">Про нас</a></li>
-                    <li><a onclick="goToservicesPage()">Послуги</a></li>
-                    <li><a onclick="goTofaqPage()">Часто задаваемі питання</a></li>
-                    <li><a onclick="goTotestimonialsPage()">Відгуки</a></li>
+                    <li><a href="#home">Головна</a></li>
+                    <li><a href="#about">Про нас</a></li>
+                    <li><a href="#services">Послуги</a></li>
+                    <li><a href="#faq">Часто задаваемі питання</a></li>
+                    <li><a href="#testimonials">Відгуки</a></li>
                     <li><a href="#support">Онлайн підтримка</a></li>
                 </ul>
             </div>
@@ -243,5 +196,3 @@
                 <p> Прототип сайту.</p>
         </div>
     </footer>
-</body>
-</html>
