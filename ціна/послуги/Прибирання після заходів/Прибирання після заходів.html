@@ -104,6 +104,31 @@
         function goToHomePage() {
             window.location.href = "/головна/index.html";
         }
+        function goToregistrationPage() {
+            window.location.href = "/реєстрація/registration.html";
+        }
+        function goToauthorizationPage() {
+            window.location.href = "/вхід/authorization.html";
+        }
+        function goToHome_contact1Page() {
+            window.location.href = "/головна/index.html#contact1";
+        }
+        function goToHome_aboutPage() {
+            window.location.href = "/головна/index.html#about";
+        }
+        function goToservicesPage() {
+            window.location.href = "/головна/index.html#services";
+        }
+        function goToMake_an_orderPage() {
+            window.location.href = "/Зробити замовлення/Зробити замовлення.html";
+        }
+        function goTofaqPage() {
+            window.location.href = "/головна/index.html#faq";
+        }
+        function goTotestimonialsPage() {
+            window.location.href = "/головна/index.html#testimonials";
+        }
+      
     </script>
 
 <body>
@@ -114,11 +139,11 @@
                 <h1 onclick="goToHomePage()">NeatWave</h1>
                 <nav>
                     <ul>
-                        <li><a href="#Make_an_order">Зробити замовлення</a></li>
-                        <li><a href="#services">Ціни</a></li>
-                        <li><a href="#about">Про нас</a></li>
-                        <li><a href="#contact1">Зв’язатися</a></li>
-                        <li><a href="/вхід/authorization.html" target="_blank">Вхід</a></li>
+                        <li><a onclick="goToMake_an_orderPage()">Зробити замовлення</a></li>
+                        <li><a onclick="goToservicesPage()">Ціни</a></li>
+                        <li><a onclick="goToHome_aboutPage()">Про нас</a></li>
+                        <li><a onclick="goToHome_contact1Page()">Зв’язатися</a></li>
+                        <li><a onclick="goToauthorizationPage()" target="_blank">Вхід</a></li>
                     </ul>
                 </nav>
             </div>
@@ -173,11 +198,11 @@
             <div class="footer-section">
                 <h3>Навігація</h3>
                 <ul>
-                    <li><a href="#home">Головна</a></li>
-                    <li><a href="#about">Про нас</a></li>
-                    <li><a href="#services">Послуги</a></li>
-                    <li><a href="#faq">Часто задаваемі питання</a></li>
-                    <li><a href="#testimonials">Відгуки</a></li>
+                    <li><a onclick="goToHomePage()">Головна</a></li>
+                    <li><a onclick="goToHome_aboutPage()">Про нас</a></li>
+                    <li><a onclick="goToservicesPage()">Послуги</a></li>
+                    <li><a onclick="goTofaqPage()">Часто задаваемі питання</a></li>
+                    <li><a onclick="goTotestimonialsPage()">Відгуки</a></li>
                     <li><a href="#support">Онлайн підтримка</a></li>
                 </ul>
             </div>
