@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сделать заказ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .form-section label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-section input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .form-section button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function showStep2() {
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        }
+        function showConfirmation() {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('confirmation').classList.remove('hidden');
+        }
+    </script>
+</head>
+<body>
+
+    <div id="step1" class="form-section">
+        <label for="name">ПІБ *</label>
+        <input type="text" id="name" required>
+        
+        <label for="phone">Номер телефону *</label>
+        <input type="tel" id="phone" required>
+        
+        <label for="email">Електронна пошта *</label>
+        <input type="email" id="email" required>
+        
+        <label for="address">Адреса *</label>
+        <input type="text" id="address" required>
+        
+        <label for="friend-code">Код друга</label>
+        <input type="text" id="friend-code">
+        
+        <button type="button" onclick="showStep2()">Далі</button>
+        
+        <p>* - обов'язково для заповнення</p>
+    </div>
+
+    <div id="step2" class="form-section hidden">
+        <label for="cleaning-type">Тип прибирання *</label>
+        <select id="cleaning-type" required>
+            <option value="general">Одноразове</option>
+            <option value="deep">Контракт</option>
+        </select>
+        
+        <label for="cleaning-kind">Вид прибирання *</label>
+        <select id="cleaning-type" required>
+            <option value="general">Вологе</option>
+            <option value="deep">Генеральне</option>
+            <option value="office">Після ремонту</option>
+            <option value="deep">Після заходів</option>
+            <option value="office">Специфічне</option>
+        </select>
+        
+        <label for="square-meters">Кількість кв. метрів *</label>
+        <input type="number" id="square-meters" required>
+        
+        <label for="time">Зручний час для з'єднання з оператором *</label>
+        <input type="text" id="time" required>
+        
+        <label for="additional-info">Додаткова інформація</label>
+        <input type="text" id="additional-info">
+        
+        <button type="button" onclick="showConfirmation()">Замовити</button>
+    </div>
+
+    <div id="confirmation" class="form-section hidden">
+        <h2>Замовлення прийняте</h2>
+        <button type="button" onclick="location.reload()">Далі</button>
+    </div>
+
+</body>
+</html>
