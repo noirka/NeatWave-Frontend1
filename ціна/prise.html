@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeatWave</title>
+    <link rel="stylesheet" href="/головна/Slil.css">
+
+    <link rel="stylesheet" href="prise.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  
+   
+    <script>
+      
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    var answer = this.querySelector('.faq-answer');
+                    if (answer.style.display === 'none' || answer.style.display === '') {
+                        answer.style.display = 'block';
+                        this.querySelector('i').classList.remove('fa-chevron-down');
+                        this.querySelector('i').classList.add('fa-chevron-up');
+                    } else {
+                        answer.style.display = 'none';
+                        this.querySelector('i').classList.remove('fa-chevron-up');
+                        this.querySelector('i').classList.add('fa-chevron-down');
+                    }
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const testimonialsList = document.querySelector('.testimonials-list');
+            const testimonialItems = document.querySelectorAll('.testimonial-item');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            let currentIndex = 0;
+
+            function showTestimonial(index) {
+                const offset = -index * 100;
+                testimonialsList.style.transform = `translateX(${offset}%)`;
+            }
+
+            prevBtn.addEventListener('click', function() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = testimonialItems.length - 1;
+                }
+                showTestimonial(currentIndex);
+            });
+
+            nextBtn.addEventListener('click', function() {
+                if (currentIndex < testimonialItems.length - 1) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                showTestimonial(currentIndex);
+            });
+
+            showTestimonial(currentIndex);
+        });
+
+        (function() {
+            var a = document.getElementById('myHeader'), b = null;
+            window.addEventListener('scroll', Ascroll, false);
+            document.body.addEventListener('scroll', Ascroll, false);
+            function Ascroll() {
+                if (b == null) {
+                    var Sa = getComputedStyle(a, ''), s = '';
+                    for (var i = 0; i < Sa.length; i++) {
+                        if (Sa[i].indexOf('overflow') == 0 || Sa[i].indexOf('padding') == 0 || Sa[i].indexOf('border') == 0 || Sa[i].indexOf('outline') == 0 || Sa[i].indexOf('box-shadow') == 0 || Sa[i].indexOf('background') == 0) {
+                            s += Sa[i] + ': ' + Sa.getPropertyValue(Sa[i]) + '; ';
+                        }
+                    }
+                    b = document.createElement('div');
+                    b.style.cssText = s + ' box-sizing: border-box; width: ' + a.offsetWidth + 'px;';
+                    a.insertBefore(b, a.firstChild);
+                    var l = a.childNodes.length;
+                    for (var i = 1; i < l; i++) {
+                        b.appendChild(a.childNodes[1]);
+                    }
+                    a.style.height = b.getBoundingClientRect().height + 'px';
+                    a.style.padding = '0';
+                    a.style.border = '0';
+                }
+                if (a.getBoundingClientRect().top <= 0) {
+                    b.className = 'sticky';
+                } else {
+                    b.className = '';
+                }
+                window.addEventListener('resize', function() {
+                    a.children[0].style.width = getComputedStyle(a, '').width;
+                }, false);
+            }
+        })();
+
+        function goToHomePage() {
+            window.location.href = "/головна/index.html";
+        }
+        function goToregistrationPage() {
+            window.location.href = "/реєстрація/registration.html";
+        }
+        function goToauthorizationPage() {
+            window.location.href = "/вхід/authorization.html";
+        }
+        function goToHome_contact1Page() {
+            window.location.href = "/головна/index.html#contact1";
+        }
+        function goToHome_aboutPage() {
+            window.location.href = "/головна/index.html#about";
+        }
+        function goToservicesPage() {
+            window.location.href = "/головна/index.html#services";
+        }
+        function goToMake_an_orderPage() {
+            window.location.href = "/Зробити замовлення/Зробити замовлення.html";
+        }
+        function goTofaqPage() {
+            window.location.href = "/головна/index.html#faq";
+        }
+        function goTotestimonialsPage() {
+            window.location.href = "/головна/index.html#testimonials";
+        }
+    </script>
+</head>
+<body>
+    
+    <header id="myHeader">
+        <div class="container">
+            <div class="rown">
+                <h1 onclick="goToHomePage()">NeatWave</h1>
+                <nav>
+                    <ul>
+                        <li><a onclick="goToMake_an_orderPage()">Зробити замовлення</a></li>
+                        <li><a onclick="goToservicesPage()">Ціни</a></li>
+                        <li><a onclick="goToHome_aboutPage()">Про нас</a></li>
+                        <li><a onclick="goToHome_contact1Page()">Зв’язатися</a></li>
+                        <li><a onclick="goToauthorizationPage()" target="_blank">Вхід</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+   
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вибір Послуг</title>
+    <link rel="stylesheet" href="services.css">
+  
+
+<body1>
+    
+    <div class="services-container">
+        <div class="service-card">
+            <h2>Генеральне прибирання</h2>
+            <p>Це комплексний процес, який включає в себе глибоке чищення всіх приміщень. Він охоплює видалення пилу з усіх поверхонь, миття вікон, прання підлог, очищення меблів і видалення плям, а також дезінфекцію приміщень для забезпечення безпечного та гігієнічного середовища.</p>
+            <a href="послуги/Генеральне прибирання/Генеральне прибирання.html">Детальніше</a>
+        </div>
+        <div class="service-card">
+            <h2>Прибирання після ремонтних або будівельних робіт</h2>
+            <p>Це спеціалізований вид прибирання, який включає в себе видалення будівельних залишків, пилу, цементного осаду, а також очищення будівельного сміття. Після цього виконується генеральне прибирання для відновлення чистоти та порядку в приміщенні.</p>
+            <a href="послуги/Прибирання після ремонтних або будівельних робіт/Прибирання після ремонтних або будівельних робіт.html">Детальніше</a>
+        </div>
+        <div class="service-card">
+            <h2>Прибирання після заходів</h2>
+            <p>Це спеціальне прибирання, яке проводиться після проведення святкових або розважальних заходів. Включає в себе збирання сміття, прибирання залишків страв і напоїв, миття посуду, видалення плям та інше, для повернення приміщення в оригінальний стан.</p>
+            <a href="послуги/Прибирання після заходів/Прибирання після заходів.html">Детальніше</a>
+        </div>
+        <div class="service-card">
+            <h2>Cпецифічне прибирання</h2>
+            <p>Це прибирання, яке відповідає специфічним потребам клієнта або особливостям приміщення. Воно може включати такі види робіт, як чищення великих площ, очищення після пожежі або повені, видалення неприємних запахів, спеціалізоване чищення підлогових покриттів, меблів або інших поверхонь. Перед початком такого прибирання уточнюються всі деталі з представником компанії для забезпечення найвищої якості послуг.</p>
+            <a href="послуги/Cпецифічне прибирання/Cпецифічне прибирання.html">Детальніше</a>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Навігація</h3>
+                <ul>
+                    <li><a onclick="goToHomePage()">Головна</a></li>
+                    <li><a onclick="goToHome_aboutPage()">Про нас</a></li>
+                    <li><a onclick="goToservicesPage()">Послуги</a></li>
+                    <li><a onclick="goTofaqPage()">Часто задаваемі питання</a></li>
+                    <li><a onclick="goTotestimonialsPage()">Відгуки</a></li>
+                    <li><a href="https://t.me/neatWave_bot" target="_blank">Онлайн підтримка</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Системи оплати</h3>
+                <ul class="payment-icons">
+                    <li><img src="/Image/card_11041038.png" alt="Visa"></li>
+                    <li><img src="/Image/logo_14062982.png" alt="Mastercard"></li>
+                    <li><img src="/Image/paypal_888870.png" alt="PayPal"></li>
+                    <!-- Додайте інші іконки за потреби -->
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <p>&copy; Компанія NeatWave. 2024 рік</p>
+                <p> Прототип сайту.</p>
+        </div>
+    </footer>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeatWave</title>
+    <link rel="stylesheet" href="Slil.css">
+    <link rel="stylesheet1" href="authorization.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var serviceItems = document.querySelectorAll('.service-item');
+
+            // Додаємо подію "click" на кожен елемент .service-item
+            serviceItems.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    var description = this.querySelector('.service-description');
+                    if (description.style.display === 'none' || description.style.display === '') {
+                        description.style.display = 'block';
+                        this.querySelector('i').classList.remove('fa-chevron-down');
+                        this.querySelector('i').classList.add('fa-chevron-up');
+                    } else {
+                        description.style.display = 'none';
+                        this.querySelector('i').classList.remove('fa-chevron-up');
+                        this.querySelector('i').classList.add('fa-chevron-down');
+                    }
+                });
+            });
+        });
+    </script>
+ <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var faqItems = document.querySelectorAll('.faq-item');
+
+        // Додаємо подію "click" на кожен елемент .faq-item
+        faqItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                var answer = this.querySelector('.faq-answer');
+                if (answer.style.display === 'none' || answer.style.display === '') {
+                    answer.style.display = 'block';
+                    this.querySelector('i').classList.remove('fa-chevron-down');
+                    this.querySelector('i').classList.add('fa-chevron-up');
+                } else {
+                    answer.style.display = 'none';
+                    this.querySelector('i').classList.remove('fa-chevron-up');
+                    this.querySelector('i').classList.add('fa-chevron-down');
+                }
+            });
+        });
+    });
+</script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    const testimonialsList = document.querySelector('.testimonials-list');
+    const testimonialItems = document.querySelectorAll('.testimonial-item');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    let currentIndex = 0;
+
+    function showTestimonial(index) {
+        const offset = -index * 100;
+        testimonialsList.style.transform = `translateX(${offset}%)`;
+    }
+
+    prevBtn.addEventListener('click', function() {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = testimonialItems.length - 1;
+        }
+        showTestimonial(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', function() {
+        if (currentIndex < testimonialItems.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
+        showTestimonial(currentIndex);
+    });
+
+    showTestimonial(currentIndex);
+});
+function goToHomePage() {
+            window.location.href = "/головна/index.html";
+        }
+
+function goToauthorizationPage() {
+            window.location.href = "/вхід/authorization.html";
+        }
+        function goToprisePage() {
+            window.location.href = "/ціна/prise.html";
+        }
+    </script>
+  
+</head>
+<body>
+    <header id="myHeader">
+        <div class="container">
+            <div class="rown">
+                <h1 onclick="goToHomePage()">NeatWave</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#Make_an_order">Зробити замовлення</a></li>
+                        <li><a onclick="goToprisePage()">Ціни</a></li>
+                        <li><a href="#about">Про нас</a></li>
+                        <li><a href="#contact1">Зв’язатися</a></li>
+                        <li><a onclick="goToauthorizationPage()" target="_blank">Вхід</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <script>
+        (function() {
+            var a = document.getElementById('myHeader'), b = null;
+            window.addEventListener('scroll', Ascroll, false);
+            document.body.addEventListener('scroll', Ascroll, false);
+            function Ascroll() {
+                if (b == null) {
+                    var Sa = getComputedStyle(a, ''), s = '';
+                    for (var i = 0; i < Sa.length; i++) {
+                        if (Sa[i].indexOf('overflow') == 0 || Sa[i].indexOf('padding') == 0 || Sa[i].indexOf('border') == 0 || Sa[i].indexOf('outline') == 0 || Sa[i].indexOf('box-shadow') == 0 || Sa[i].indexOf('background') == 0) {
+                            s += Sa[i] + ': ' +Sa.getPropertyValue(Sa[i]) + '; '
+                        }
+                    }
+                    b = document.createElement('div');
+                    b.style.cssText = s + ' box-sizing: border-box; width: ' + a.offsetWidth + 'px;';
+                    a.insertBefore(b, a.firstChild);
+                    var l = a.childNodes.length;
+                    for (var i = 1; i < l; i++) {
+                        b.appendChild(a.childNodes[1]);
+                    }
+                    a.style.height = b.getBoundingClientRect().height + 'px';
+                    a.style.padding = '0';
+                    a.style.border = '0';
+                }
+                if (a.getBoundingClientRect().top <= 0) {
+                    b.className = 'sticky';
+                } else {
+                    b.className = '';
+                }
+                window.addEventListener('resize', function() {
+                    a.children[0].style.width = getComputedStyle(a, '').width
+                }, false);
+            }
+        })();
+        </script>
+    <section id="foto">
+        
+            
+            <div class="image-container">
+                <img src="/Image/komnata_postel_kreslo_70099_3840x2160.jpg"foto" class="banner-image">
+            </div>
+        
+    </section>
+    
+
+    <section id="about">
+        <div class="container">
+            
+            <h2>Про нас</h2>
+            <p>NeatWave є провідною компанією у сфері прибирання, що пропонує високоякісні послуги з обслуговування приміщень. Заснована з метою надати клієнтам ефективні та професійні рішення для забезпечення чистоти та порядку у їхніх приміщеннях, NeatWave відзначається інноваційним підходом до прибирання та наголосом на використанні екологічно чистих методів та матеріалів.</p>
+            <a href="#contact" class="btn">Зв'яжіться з нами</a>
+        </div>
+    </section>
+
+    
+    <section id="warum">
+        <div class="container">
+            
+            <h2>Чому вам треба обрати саме нас</h2>
+            <div class="reasons">
+                <div class="left">
+                    <img src="/Image/icons8-1.png" alt="iconn">
+                    <p>Професіоналізм і досвід: Команда NeatWave складається з висококваліфікованих фахівців, які мають багаторічний досвід у галузі прибирання. Вони проходять систематичне навчання та тренування для забезпечення найвищої якості послуг.</p>
+                </div>
+                <div class="right">
+                    <img src="/Image/person_13511742.png" alt="iconn-1">
+                    <p>Індивідуальний підхід: NeatWave розуміє, що кожен клієнт має унікальні потреби та вимоги щодо прибирання. Тому вони пропонують індивідуальні плани обслуговування, які відповідають конкретним вимогам кожного клієнта.</p>
+                </div>
+                <div class="left">
+                    <img src="/Image/lights-on_9325834.png" alt="iconn-2">
+                    <p>Екологічно чисті рішення: NeatWave приділяє велику увагу єкологічній відповідальності. Вони використовують екологічно чисті засоби та методи прибирання, які не лише ефективно видаляють забруднення, але і зберігають чистоту без шкоди для навколишнього середовища.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="center-content">
+        <div class="container">
+            <h2>Наші Послуги</h2>
+            <div class="services-list">
+                <div class="service-item">
+                    <h3>Генеральне прибирання<i class="fas fa-chevron-down"></i></h3>
+                    <p class="service-description"> Це комплексний процес, який включає в себе глибоке чищення всіх приміщень. Він охоплює видалення пилу з усіх поверхонь, миття вікон, прання підлог, очищення меблів і видалення плям, а також дезінфекцію приміщень для забезпечення безпечного та гігієнічного середовища.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Прибирання після ремонтних або будівельних робіт<i class="fas fa-chevron-down"></i></h3>
+                    <p class="service-description">Це спеціалізований вид прибирання, який включає в себе видалення будівельних залишків, пилу, цементного осаду, а також очищення будівельного сміття. Після цього виконується генеральне прибирання для відновлення чистоти та порядку в приміщенні.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Прибирання після заходів<i class="fas fa-chevron-down"></i></h3>
+                    <p class="service-description">Це спеціальне прибирання, яке проводиться після проведення святкових або розважальних заходів. Включає в себе збирання сміття, прибирання залишків страв і напоїв, миття посуду, видалення плям та інше, для повернення приміщення в оригінальний стан.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Прибирання за контрактом<i class="fas fa-chevron-down"></i></h3>
+                    <p class="service-description">Це регулярне прибирання, яке проводиться на основі попередньо укладеного контракту між клієнтом та прибиральною компанією. Умови контракту визначаються індивідуально з урахуванням потреб та вимог клієнта, і можуть включати регулярність, обсяг робіт, час та інші деталі.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Специфічне прибирання<i class="fas fa-chevron-down"></i></h3>
+                    <p class="service-description">Це прибирання, яке відповідає специфічним потребам клієнта або особливостям приміщення. Воно може включати такі види робіт, як чищення великих площ, очищення після пожежі або повені, видалення неприємних запахів, спеціалізоване чищення підлогових покриттів, меблів або інших поверхонь. Перед початком такого прибирання уточнюються всі деталі з представником компанії для забезпечення найвищої якості послуг.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="center-content">
+        <div class="container">
+            <h2>Відгуки</h2>
+            <div class="testimonial-controls">
+                <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <div class="testimonials-wrapper">
+                    <div class="testimonials-list">
+                        <div class="testimonial-item">
+                            <img src="/Image/komnata_postel_stil_49197_1920x1080.jpg" alt="Іван Іванов">
+                            <div class="testimonial-content">
+                                <p>“Neatwave вразив мене своєю якістю обслуговування. Їхні професіонали підійшли до кожного дрібниці з увагою. Після їхньої роботи моє приміщення було не лише чистим, але і насиченим свіжістю. Дякую Neatwave за бездоганну роботу!”</p>
+                                <p><strong>Іван Іванов</strong></p>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <img src="/Image/komnata_detskaia_mebel_106917_1920x1080.jpg" alt="Олена Петрова">
+                            <div class="testimonial-content">
+                                <p>“Надзвичайне обслуговування від Neatwave! Вони зробили моє приміщення бездоганно чистим і насиченим ароматом свіжості. Кожна деталь була уважною висвітленням їхнього професіоналізму. Щасливий, що обрав їх, і впевнений, що буду рекомендувати їх усім своїм знайомим”</p>
+                                <p><strong>Олена Петрова</strong></p>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <img src="/Image/komnata_kreslo_kamin_91329_1920x1080.jpg" alt="Микола Сидоров">
+                            <div class="testimonial-content">
+                                <p>“Щасливий клієнт Neatwave тут! Вони забезпечили моє приміщення неймовірною чистотою та свіжістю. Кожен етап роботи виконувався з дбайливістю та професіоналізмом. Мої очі були приємно вражені результатом. Надзвичайно задоволений і готовий звертатися до них знову та знову!”</p>
+                                <p><strong>Микола Сидоров</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    <section id="faq">
+        <div class="container">
+            <h2>Що включає ваша послуга клінінгу?</h2>
+            <div class="faq-item">
+                <h3>Що включає ваша послуга клінінгу?<i class="fas fa-chevron-down"></i></h3>
+                <p class="faq-answer">Наша послуга клінінгу включає в себе:<br>
+                    &bull; Вологе прибирання підлоги<br>
+                    &bull; Сухе прибирання меблів та речей<br>
+                    &bull; Підмітання бруду з-під меблів<br>
+                    &bull; Інші послуги, які попередньо омовлюються з клієнтом</p>
+            </div>
+            <div class="faq-item">
+                <h3>Чи маєте ви сертифікати або ліцензії на надання клінінгових послуг?<i class="fas fa-chevron-down"></i></h3>
+                <p class="faq-answer">    Так, у нас є наступні сертифікати та ліцензії:<br>
+                    &bull; Сертифікат ISO9001: 2000;<br>
+                    &bull; Дозволи на висотні роботи;<br>
+                    &bull; Ліцензія на дезинфекцію, дезінсекцію, дератизацію;<br>
+                    &bull; Окремі допуски на спеціалістів</p>
+            </div>
+            <div class="faq-item">
+                <h3>Приймаєте ви регулярні замовлення на прибирання з певною періодичністю?<i class="fas fa-chevron-down"></i></h3>
+                <p class="faq-answer">   Так, ми приймаємо такі замовлення. Для цього у нас є окрема послуга “Контракт”, у межах якого розглядається періодичність прибирань, строк контракту, ціна прибирання та можливі специфічні заходи</p>
+            </div>
+            <div class="faq-item">
+                <h3>Чи є у вас знижки для постійних клієнтів?<i class="fas fa-chevron-down"></i></h3>
+                <p class="faq-answer">   Так, ми даємо 10% знижку клієнтам, які замовлюють у нас прибирання не рідше, ніж 3 рази на місяць на протязі 3-х місяців або 1 раз на місяць на протязі 9 місяців. Також у нас передбачена знижка за довготривалий контракт, величина якої залежить від строку контракту.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact1">
+        <div class="container">
+            <h2>Зробити замовлення консультації</h2>
+            <form action="submit_form.php" method="post">
+                <label for="name">Ім'я:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Електронна пошта:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Додаткова інформація:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit" class="btn">Відправити</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Навігація</h3>
+                <ul>
+                    <li><a onclick="goToHomePage()">Головна</a></li>
+                    <li><a href="#about">Про нас</a></li>
+                    <li><a href="#services">Послуги</a></li>
+                    <li><a href="#faq">Часто задаваемі питання</a></li>
+                    <li><a href="#testimonials">Відгуки</a></li>
+                    <li><a href="https://t.me/neatWave_bot" target="_blank">Онлайн підтримка</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Системи оплати</h3>
+                <ul class="payment-icons">
+                    <li><img src="/Image/card_11041038.png" alt="Visa"></li>
+                    <li><img src="/Image/logo_14062982.png" alt="Mastercard"></li>
+                    <li><img src="/Image/paypal_888870.png" alt="PayPal"></li>
+                    <!-- Додайте інші іконки за потреби -->
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <p>&copy; Компанія NeatWave. 2024 рік</p>
+                <p> Прототип сайту.</p>
+        </div>
+    </footer>
+</body>
+</html>
